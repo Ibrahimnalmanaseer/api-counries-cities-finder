@@ -36,7 +36,7 @@ class handler(BaseHTTPRequestHandler):
             display=f"The capital of {country} is {capital}"
 
 
-        elif 'capital' in dic_set:
+        elif dic_set['capital']:
             url='https://restcountries.com/v3.1/capital/'
             capital=dic_set['capital']
             r = requests.get(url + capital)
