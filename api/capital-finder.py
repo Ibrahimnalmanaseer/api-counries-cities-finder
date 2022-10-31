@@ -14,5 +14,5 @@ class handler(BaseHTTPRequestHandler):
         url_components=parse.urlsplit(api_path)
         query=parse.parse_qsl(url_components.query)
         print(query)
-        self.wfile.write(str(date).encode())
+        self.wfile.write(str(query).encode())
         return
