@@ -17,22 +17,22 @@ class handler(BaseHTTPRequestHandler):
         url_components=parse.urlsplit(api_path)
         query=parse.parse_qsl(url_components.query)
         dic_set=dict(query)
-
+        self.wfile.write(str(f'capital of {dic_set}is {dic_set.country}').encode())
         url_country= 'https://restcountries.com/v3.1/name/'
 
-        if dic_set['country']:
-            country=dic_set['country']
-            r=requests(url_country+country)
-            data=r.json()
-            capital=data[0]['capital'][0]
+        # if dic_set['country']:
+        #     country=dic_set['country']
+        #     r=requests(url_country+country)
+        #     data=r.json()
+        #     capital=data[0]['capital'][0]
             
-            self.wfile.write(str(f'capital of {country}is {capital}').encode())
+            # self.wfile.write(str(f'capital of {country}is {capital}').encode())
         
         # elif dic_set['capital']:
                 
-        else:
+        # else:
 
-            self.wfile.write(str('wrong country or capital name ').encode())
+        #     self.wfile.write(str(f'').encode())
 
        
         return
